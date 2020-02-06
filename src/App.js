@@ -1,31 +1,19 @@
 import React, { Component } from "react";
-import CardQ from "./components/Cards/CardQ";
-import CardA from "./components/Cards/CardA";
-import Form from "./components/Form";
+import Cards from "./components/Cards/Cards";
 import "./index.css";
 
 class App extends Component {
   state = {
     q: "question",
     a: "answer",
-    flip: true
-  };
-
-  flipCard = e => {
-    var newFlip = this.state.flip === true ? false : true;
-    this.setState({
-      flip: newFlip
-    });
-    return console.log("clicked");
+    cards: []
   };
 
   render() {
-    const { q, a, flip } = this.state;
+    const { q, a } = this.state;
     return (
       <div className="App">
-        <Form></Form>
-        {flip ? <CardQ text={q}></CardQ> : <CardA text={a}></CardA>}
-        <button onClick={this.flipCard}>Flip!</button>
+        <Cards question={q} answer={a}></Cards>
       </div>
     );
   }
