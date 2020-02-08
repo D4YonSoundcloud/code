@@ -1,19 +1,35 @@
 import React, { Component } from "react";
 import Cards from "./components/Cards/Cards";
-import "./index.css";
+import "./style.css";
+import AddCard from "./components/AddCard";
 
 class App extends Component {
   state = {
-    q: "question",
-    a: "answer",
-    cards: []
+    cards: [
+      {
+        question: "question",
+        answer: "answer"
+      }
+    ]
+  };
+
+  //addCard
+  addCard = (question,answer) => {
+    const newCard = {
+      question,
+      answer
+    };
+    this.setState({
+      cards: [...this.state.cards, newCard]
+    });
   };
 
   render() {
-    const { q, a } = this.state;
+    const { cards } = this.state;
     return (
       <div className="App">
-        <Cards question={q} answer={a}></Cards>
+        <AddCard addCard={this.addCard}></AddCard>
+        <Cards cards={cards}></Cards>
       </div>
     );
   }
