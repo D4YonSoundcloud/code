@@ -36,6 +36,8 @@ export class Card extends Component {
           textAlign: "center",
           verticalAlign: "middle",
           lineHeight: "150px",
+          backgroundColor: 'grey',
+          color: 'white'
         }}>
           {flip ? this.props.question : this.props.answer}
         </div>
