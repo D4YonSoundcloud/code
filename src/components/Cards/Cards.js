@@ -8,7 +8,7 @@ export class Cards extends Component {
     return (
       <div>
         {this.props.cards.map((card) => (
-            <Card key={card.question} question={card.question} answer={card.answer}></Card>
+            <Card key={card.question} question={card.question} answer={card.answer} deleteCard={this.props.deleteCard} ></Card>
         ))}
       </div>
     );

@@ -13,27 +13,35 @@ export class Card extends Component {
     return console.log("clicked");
   };
 
+  onSubmit = e => {
+    e.preventDefault();
+    this.props.deleteCard(this.props.question);
+  }
+
   render() {
     const { flip } = this.state;
 
     return (
       <div style={{
-        display:"flex",
-        flexDirection: "column"
+        margin: "auto",
+        textAlign: "center",
+        verticalAlign: "middle",
+        lineHeight: "150px",
+        maxWidth: "300px",
       }}>
         <div style={{
-          boxShadow: "0px,4px,8px,0px,rgba(0, 0, 0, 0.2)",
+          boxShadow: "0px,4px,8px,0px,black",
           maxWidth: "300px",
           margin: "auto",
           textAlign: "center",
           verticalAlign: "middle",
           lineHeight: "150px",
-          height: "150px"
         }}>
           {flip ? this.props.question : this.props.answer}
         </div>
         <button style={{margin:"auto", position: "relative"}}
         onClick={this.flipCard}>Flip!</button>
+        <input style={{margin: "auto", position: "relative"}} type="submit" value="delete!" />
       </div>
     );
   }
